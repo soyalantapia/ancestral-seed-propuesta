@@ -736,6 +736,34 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
 .pie2-x .xn-logo { height: 18px; }
 .pie2-base a { font-size: 12.5px; }
 @media (max-width: 760px) { .pie2-btn { width: auto !important; } .pie2-acc { width: auto !important; } }
+
+/* Total visual */
+.etapa1 { margin-top: 18px; display: grid; grid-template-columns: auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 10px; padding: 12px 16px; border-radius: 16px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+.e1-t { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: #e3c179; padding-right: 6px; }
+.etapa1 > div { display: grid; gap: 1px; }
+.etapa1 b { font-family: var(--font-display); font-weight: 500; font-size: 22px; color: #fff; line-height: 1.1; }
+.etapa1 span:not(.e1-t):not(.s-op) { font-size: 12px; color: #c6d1dc; }
+.etapa1 .pend b { color: #e3c179; }
+.etapa1 .s-op { font-size: 22px; }
+.suma { margin-top: 12px; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1.2fr) auto minmax(0,1.3fr); align-items: stretch; gap: 10px; }
+.s-it { display: grid; align-content: center; gap: 4px; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); }
+.s-it b { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 3.4vw, 34px); line-height: 1; color: #fff; }
+.s-it span { font-size: 13.5px; color: #c6d1dc; }
+.s-pend b { color: #e3c179; }
+.s-tot { background: #fff; box-shadow: none; }
+.s-tot b, .s-tot span { color: #001c38; }
+.s-op { align-self: center; font-family: var(--font-display); font-size: 30px; color: #e3c179; text-align: center; line-height: 1; }
+@media (max-width: 760px) {
+  .etapa1 { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap: 6px; padding: 12px; }
+  .e1-t { grid-column: 1 / -1; }
+  .etapa1 b { font-size: 18px; }
+  .suma { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 6px; }
+  .s-it { padding: 14px; }
+  .s-it b { font-size: 22px; }
+  .s-op { font-size: 22px; }
+  .suma .s-op:nth-of-type(2), .s-tot { grid-column: 1 / -1; }
+  .suma .s-op:nth-of-type(2) { justify-self: center; }
+}
 </style>
 </head>
 <body>
@@ -811,9 +839,9 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
   <section class="sec gutter" aria-labelledby="t-entregables">
     <div class="wrap">
       <div class="sec-head" data-r>
-        <span class="caps">Lo que reciben</span>
-        <h2 id="t-entregables">Seis entregables, construidos con ustedes</h2>
-        <p class="lead">Cada uno lo probamos juntos y lo ajustamos con lo que nos digan. Y cuando la plataforma ya está en uso, seguimos al lado de ustedes mes a mes, con soporte y con los ajustes que vayan apareciendo.</p>
+        <span class="caps">Trabajo en conjunto</span>
+        <h2 id="t-entregables">Lo que vamos a trabajar con ustedes</h2>
+        <p class="lead">Seis frentes que armamos juntos, probando y ajustando con lo que nos digan. Y con la plataforma en uso, seguimos mes a mes con soporte.</p>
       </div>
       <div class="entregables">
         <article class="ent" data-r>
@@ -821,42 +849,36 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
           <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 3.5-6 7-6s6 2 7 6"/></svg></span>
           <h3>Cuentas y datos reales</h3>
           <p>Ingreso con mail y contraseña, roles de postulante, tutor y coordinador, y una base de datos donde queda guardado cada caso, con sus evidencias.</p>
-          <p class="listo"><b>Con ustedes:</b> definimos los roles y probamos juntos la primera cuenta real.</p>
         </article>
         <article class="ent" data-r>
           <span class="n" aria-hidden="true">2</span>
           <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 7-8"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span>
           <h3>El circuito completo con el tutor</h3>
           <p>Prediagnóstico, diagnóstico cargado por el tutor, evaluación, pedido de evidencias, consentimiento de la comunidad y firma del certificado.</p>
-          <p class="listo"><b>Con ustedes:</b> sus tutores lo prueban con un caso real, y ajustamos cada paso con lo que nos digan.</p>
         </article>
         <article class="ent" data-r>
           <span class="n" aria-hidden="true">3</span>
           <span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2M18 18h2v2"/></svg></span>
           <h3>El certificado verificable por QR</h3>
           <p>Cada certificado emitido tiene su QR único, su código de verificación y su estado: vigente, vencido o revocado. El directorio público muestra solo casos reales.</p>
-          <p class="listo"><b>Con ustedes:</b> definimos qué se ve al escanear, y lo probamos con un certificado impreso.</p>
         </article>
         <article class="ent" data-r>
           <span class="n" aria-hidden="true">4</span>
           <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M9 9v11"/></svg></span>
           <h3>Su panel de gestión, con carga masiva</h3>
           <p>Desde acá manejan interesados, tutores, casos y contenidos. Dan de alta productos y servicios en cantidad desde una planilla, sin depender de nosotros.</p>
-          <p class="listo"><b>Con ustedes:</b> armamos juntos la planilla modelo con sus propios productos.</p>
         </article>
         <article class="ent" data-r>
           <span class="n" aria-hidden="true">5</span>
           <span class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M3.5 10h17M7 14.5h4"/></svg></span>
           <h3>El cobro de cada certificación</h3>
           <p>Postularse es gratis. Al iniciar la certificación se cobra un pago inicial, y el resto dentro de la misma certificación.</p>
-          <p class="listo"><b>Con ustedes:</b> elegimos el arancel y la pasarela de pago en la primera reunión.</p>
         </article>
         <article class="ent" data-r>
           <span class="n" aria-hidden="true">6</span>
           <span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 19c.8-3.2 3-5 5.5-5s4.7 1.8 5.5 5M14.5 15.2c.8-.6 1.6-.9 2.5-.9 2 0 3.5 1.5 4 4.2"/></svg></span>
           <h3>Listos para el lanzamiento comercial</h3>
           <p>Capacitamos a su equipo y a sus tutores, entregamos el manual de uso y pasamos los cuatro casos testigo al sistema real, para que puedan salir a vender.</p>
-          <p class="listo"><b>Y después, mes a mes:</b> acompañamos los primeros casos reales y seguimos dándoles soporte.</p>
         </article>
       </div>
     </div>
@@ -866,7 +888,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
     <div class="wrap">
       <div class="sec-head" data-r>
         <span class="caps">El plan</span>
-        <h2 id="t-plan">Tres entregas, y salen a vender</h2>
+        <h2 id="t-plan">Tres etapas para salir a comercializar</h2>
         <p class="lead">En 60 días como máximo desde el primer pago, la plataforma queda completa.</p>
       </div>
       <div class="linea" data-r>
@@ -874,7 +896,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
         <div class="sem"><span class="dot">1</span><div><h3>Que quede guardado</h3><ul><li>Cuentas, roles y base de datos</li><li>Postulaciones y evidencias reales</li><li>El primer caso real cargado</li></ul></div></div>
         <div class="sem"><span class="dot">2</span><div><h3>Que se pueda certificar</h3><ul><li>El circuito con el tutor</li><li>La firma y el certificado</li><li>La credencial y el QR reales</li></ul></div></div>
         <div class="sem"><span class="dot">3</span><div><h3>Que lo manejen ustedes</h3><ul><li>Panel de gestión y carga masiva</li><li>El cobro de cada certificación</li><li>Capacitación y primeros casos</li></ul></div></div>
-        <div class="sem"><span class="dot">4</span><div><h3>Lanzamiento comercial</h3><ul><li>Con las tres entregas aprobadas, ya pueden lanzar</li><li>Salen a ofrecerla a productores y empresas</li><li>Empiezan a certificar y a cobrar</li></ul></div></div>
+        <div class="sem"><span class="dot">4</span><div><h3>Lanzamiento comercial</h3><ul><li>Con las tres etapas terminadas, ya pueden lanzar</li><li>Salen a ofrecerla a productores y empresas</li><li>Empiezan a certificar y a cobrar</li></ul></div></div>
       </div>
       <div class="cadencia" data-r>
         <div><b>Una reunión de producto por semana</b><span>Con el sistema en pantalla, para decidir a tiempo y sin sorpresas.</span></div>
@@ -898,18 +920,27 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
       <div class="sub-h" data-r>
         <span class="caps">El total</span>
         <h3 style="font-size:28px">Mantenemos lo que acordamos en la primera etapa</h3>
-        <p class="lead" style="font-size:16px">La primera etapa era de USD 17.000: ya cubrieron USD 10.000 y quedaron pendientes USD 7.000. Esta etapa, la que deja la plataforma real y funcionando, es de USD 42.000, con los servidores y la base de datos incluidos. En total quedan USD 49.000, en cuotas de USD 1.500 por mes y sin intereses. La blockchain queda como paso siguiente, como nos pidieron.</p>
       </div>
-      <div class="escala" data-r role="img" aria-label="USD 10.000 ya cubiertos, 7.000 pendientes de la primera etapa y 42.000 de esta etapa">
-        <div class="e-pag" style="flex-grow:10;min-width:92px"><b class="num">10.000</b><span>Ya cubiertos</span></div>
-        <div class="e-aho" style="flex-grow:7;min-width:92px"><b class="num">7.000</b><span>Pendientes</span></div>
-        <div class="e-des" style="flex-grow:42"><b class="num">42.000</b><span>Esta etapa</span></div>
+      <div class="etapa1" data-r role="img" aria-label="Primera etapa: USD 17.000 menos 10.000 pagados, quedan 7.000 pendientes">
+        <span class="e1-t">Primera etapa</span>
+        <div><b class="num">17.000</b><span>Total</span></div>
+        <span class="s-op" aria-hidden="true">−</span>
+        <div><b class="num">10.000</b><span>Ya pagaron</span></div>
+        <span class="s-op" aria-hidden="true">=</span>
+        <div class="pend"><b class="num">7.000</b><span>Pendiente</span></div>
+      </div>
+      <div class="suma" data-r role="img" aria-label="USD 7.000 pendientes más USD 42.000 de esta etapa: USD 49.000 en total">
+        <div class="s-it s-pend"><b class="num">7.000</b><span>Pendiente</span></div>
+        <span class="s-op" aria-hidden="true">+</span>
+        <div class="s-it"><b class="num">42.000</b><span>Esta etapa: la plataforma real</span></div>
+        <span class="s-op" aria-hidden="true">=</span>
+        <div class="s-it s-tot"><b class="num">USD 49.000</b><span>En 33 cuotas, sin intereses</span></div>
       </div>
       <div class="inv-grande" data-r style="margin-top:28px">
         <div class="inv-ahora">
           <span class="inv-k">Por mes, a tasa 0 %</span>
           <span class="inv-n num">USD 1.500</span>
-          <span class="inv-s">En 33 cuotas, USD 49.000 en total, sin intereses.</span>
+          <span class="inv-s">33 cuotas, sin intereses.</span>
         </div>
         <div class="inv-pagos">
           <div><b class="num">USD 4.500</b><span>Para arrancar, al firmar: las tres primeras cuotas juntas.</span></div>
