@@ -764,6 +764,31 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
   .suma .s-op:nth-of-type(2), .s-tot { grid-column: 1 / -1; }
   .suma .s-op:nth-of-type(2) { justify-self: center; }
 }
+
+/* Infraestructura en la cuota */
+.cuota-bar { margin-top: 8px; display: grid; gap: 10px; }
+.cb-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.cb-top span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.cb-top b { font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--ink); }
+.cb-bar { display: flex; height: 88px; border-radius: 18px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--line); }
+.cb-bar > div { flex-basis: 0; min-width: 0; display: grid; align-content: center; gap: 2px; padding: 0 18px; }
+.cb-bar b { font-family: var(--font-display); font-weight: 500; font-size: 26px; line-height: 1; }
+.cb-bar span { font-size: 13px; }
+.cb-dev { background: #2b5177; color: #fff; }
+.cb-inf { background: #c7a800; color: #001c38; min-width: 124px !important; }
+.infra-items { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.infra-items > div { display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto auto; column-gap: 12px; row-gap: 2px; align-items: center; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--paper); }
+.ii-ic { grid-row: 1 / 3; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--lav-wash); }
+.ii-ic svg { width: 22px; height: 22px; fill: none; stroke: var(--plum); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.infra-items b { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--ink); }
+.infra-items span:not(.ii-ic) { font-size: 14px; color: var(--muted); }
+@media (max-width: 760px) {
+  .infra-items { grid-template-columns: minmax(0,1fr); }
+  .cb-bar { height: 80px; }
+  .cb-bar > div { padding: 0 12px; }
+  .cb-bar b { font-size: 22px; }
+  .cb-bar span { font-size: 12px; }
+}
 </style>
 </head>
 <body>
@@ -778,7 +803,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
     <div class="hero-copy">
       <span class="hero-eyebrow">Propuesta para la siguiente etapa</span>
       <h1>Salir a <span style="white-space:nowrap"><em>comercializar</em>,</span> y que Ancestral Seed se empiece a usar</h1>
-      <p class="sub">Lo que entregamos es una plataforma lista para el mercado: productores que se postulan, certificaciones que se cobran y sellos verificables por QR.</p>
+      <p class="sub">Una plataforma real, lista para el mercado: productores que se postulan, certificaciones que se cobran y sellos verificables por QR.</p>
       <a class="hero-btn" href="#t-recupero">Ver cómo avanzamos</a>
     </div>
 
@@ -899,7 +924,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
         <div class="sem"><span class="dot">4</span><div><h3>Lanzamiento comercial</h3><ul><li>Con las tres etapas terminadas, ya pueden lanzar</li><li>Salen a ofrecerla a productores y empresas</li><li>Empiezan a certificar y a cobrar</li></ul></div></div>
       </div>
       <div class="cadencia" data-r>
-        <div><b>Una reunión de producto por semana</b><span>Con el sistema en pantalla, para decidir a tiempo y sin sorpresas.</span></div>
+        <div><b>Mientras la construimos, una reunión por semana</b><span>Con el sistema en pantalla, para decidir a tiempo y sin sorpresas.</span></div>
         <div><b>Un avance por escrito todas las semanas</b><span>Qué se hizo, qué viene y qué estamos esperando de ustedes.</span></div>
       </div>
     </div>
@@ -948,14 +973,10 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
         </div>
       </div>
 
-      <div class="dos-info">
+      <div class="dos-info" style="grid-template-columns:minmax(0,1fr)">
         <div class="vidrio" data-r>
           <h3>Si levantan inversión</h3>
-          <p>En el momento en que cierren una ronda de inversión, se salda de una vez todo lo que falte de las cuotas. Sin intereses en ningún caso: pagan lo mismo, antes.</p>
-        </div>
-        <div class="vidrio" data-r>
-          <h3>De quién es la plataforma</h3>
-          <p>Los datos y la marca son siempre de Ancestral Seed, y lo ya pagado se respeta. La plataforma nueva pasa a ser de ustedes al completar los USD 49.000, con las cuotas o al levantar inversión. Hasta entonces la usan con licencia para operar y vender.</p>
+          <p>Si cierran una ronda de inversión, con ese capital se paga de una vez lo que falte de las cuotas. Sin intereses en ningún caso: pagan lo mismo, antes.</p>
         </div>
       </div>
 
@@ -972,7 +993,7 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
       <div class="cadencia" data-r>
         <div><b>Una reunión por mes con su equipo</b><span>Revisamos cómo se está usando, qué les dicen productores y tutores, y qué conviene ajustar.</span></div>
         <div><b>Soporte mientras la usan</b><span>Si algo no funciona como se acordó, lo arreglamos sin costo. Ustedes se ocupan de vender; de la parte técnica, nosotros.</span></div>
-        <div><b>Ajustes a partir de su experiencia</b><span>Los cambios chicos que salen del uso diario, como un texto, un campo o un paso del formulario, los vamos sumando en cada mes.</span></div>
+        <div><b>Ajustes a partir de su experiencia</b><span>Los cambios chicos que salen del uso diario, como un texto, un campo o un paso del formulario, los vamos sumando mes a mes.</span></div>
         <div><b>Un equipo que conoce el proyecto</b><span>Cuando quieran dar el paso siguiente, como la blockchain o las licencias por país, lo arma el mismo equipo que ya conoce todo.</span></div>
       </div>
     </div>
@@ -982,35 +1003,21 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
     <div class="wrap">
       <div class="sec-head" data-r>
         <span class="caps">Infraestructura tecnológica</span>
-        <h2 id="t-incluye">USD 300 por mes para mantenerla en línea</h2>
+        <h2 id="t-incluye">Ya va incluida en la cuota</h2>
+        <p class="lead">Los servidores y la base de datos que mantienen la plataforma en línea todos los días. La gestionamos nosotros, así no tienen que ocuparse de nada técnico.</p>
       </div>
-      <div class="anual-card" data-r>
-        <div class="anual-izq">
-          <span class="caps">Incluida en la cuota</span>
-          <h3>Servidores y base de datos, siempre activos</h3>
-          <p>Es lo que mantiene la plataforma funcionando todos los días. Mientras paguen las cuotas, ya va incluida en los USD 1.500. Después de la última, siguen USD 300 por mes mientras la plataforma esté en línea. La gestionamos nosotros, así no tienen que ocuparse de nada técnico.</p>
+      <div class="cuota-bar" data-r role="img" aria-label="Cada cuota de USD 1.500: 1.200 de desarrollo y trabajo mes a mes, y 300 de infraestructura">
+        <div class="cb-top"><span>Cada cuota</span><b class="num">USD 1.500</b></div>
+        <div class="cb-bar">
+          <div class="cb-dev" style="flex-grow:12"><b class="num">1.200</b><span>Desarrollo y trabajo mes a mes</span></div>
+          <div class="cb-inf" style="flex-grow:3"><b class="num">300</b><span>Infraestructura</span></div>
         </div>
-        <div class="anual-precio"><span class="num">USD 300</span><small>por mes</small></div>
-        <ul class="anual-chips">
-          <li>Servidores</li>
-          <li>Base de datos</li>
-        </ul>
       </div>
-    </div>
-  </section>
-
-  <section class="sec gutter" aria-labelledby="t-pasos">
-    <div class="wrap">
-      <div class="sec-head" data-r>
-        <span class="caps">Cómo seguimos</span>
-        <h2 id="t-pasos">Cómo arrancamos</h2>
+      <div class="infra-items">
+        <div data-r><span class="ii-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01"/></svg></span><b>Servidores</b><span>La plataforma en línea, todos los días.</span></div>
+        <div data-r><span class="ii-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg></span><b>Base de datos</b><span>Cada caso y cada certificado, guardado.</span></div>
+        <div data-r><span class="ii-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><b>Después de la última cuota</b><span>Siguen USD 300 por mes, mientras la plataforma esté en línea.</span></div>
       </div>
-      <ol class="pasos-n">
-        <li data-r><b>Lo revisamos juntos</b><span>Ajustamos el alcance y definimos el arancel, la pasarela de pago y cuántos productores esperan al principio.</span></li>
-        <li data-r><b>Lo dejamos por escrito</b><span>Firmamos el acuerdo con el alcance, las cuotas y qué pasa si levantan inversión.</span></li>
-        <li data-r><b>Arrancamos con el primer pago</b><span>USD 4.500, las tres primeras cuotas, y esa misma semana hacemos la primera reunión de producto.</span></li>
-        <li data-r><b>Lo trabajamos con ustedes</b><span>Mientras se construye, una reunión por semana. Con la plataforma en uso, una por mes, con soporte y ajustes.</span></li>
-      </ol>
     </div>
   </section>
 
